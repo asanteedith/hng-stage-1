@@ -7,25 +7,26 @@ app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
-    allow_methods=["*"],
+    allow_methods=["GET"],
     allow_headers=["*"],
 )
 
 @app.get("/")
 def root():
-    # Strict match for root_endpoint
-    return {"message": "HNG Stage 1 API", "status": "success"}
+    # Exactly as required by instructions
+    return {"message": "API is running"}
 
 @app.get("/health")
 def health():
-    # Strict match for health_endpoint
-    return {"status": "success"}
+    # Exactly as required by instructions
+    return {"message": "healthy"}
 
 @app.get("/me")
 def get_me():
-    # Strict match for me_endpoint keys
+    # Exactly as required by instructions: includes name and uses 'github' key
     return {
+        "name": "Edith Asante",
         "email": "asanteedith699@gmail.com",
-        "current_datetime": datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z'),
-        "github_url": "https://github.com/asanteedith/hng-stage-1"
+        "github": "https://github.com/asanteedith/hng-stage-1",
+        "current_datetime": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     }
