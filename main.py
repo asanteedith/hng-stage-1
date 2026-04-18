@@ -13,17 +13,17 @@ app.add_middleware(
 
 @app.get("/")
 def root():
-    # Fixes 'root_endpoint' fail
+    # Strict match for root_endpoint
     return {"message": "HNG Stage 1 API", "status": "success"}
 
 @app.get("/health")
 def health():
-    # Fixes 'health_endpoint' fail
+    # Strict match for health_endpoint
     return {"status": "success"}
 
 @app.get("/me")
 def get_me():
-    # Fixes 'me_endpoint' by using exact keys: 'email' and 'github_url'
+    # Strict match for me_endpoint keys
     return {
         "email": "asanteedith699@gmail.com",
         "current_datetime": datetime.now(timezone.utc).isoformat(timespec='seconds').replace('+00:00', 'Z'),
