@@ -27,6 +27,6 @@ def get_me():
     return {
         "name": "Edith Asante",
         "email": "asanteedith699@gmail.com",
-        "github": "https://github.com/asanteedith/hng-stage-1",
+        "github": "https://github.com/asanteedith",
         "current_datetime": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     }
